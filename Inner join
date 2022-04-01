@@ -1,2 +1,12 @@
-select *
-from
+select date(aot.date) as date,
+       'Date' as date_type,
+       aot.program,
+       sp.abbreviation as program_name,
+       aot.type,
+       case
+         when aot.type = '1' then 'New'
+         when aot.type = '2' then 'Refi'
+       end as type_name,
+       aot.status,
+       aot.status_name,
+       aot.loan_amount,
